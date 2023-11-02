@@ -1,0 +1,44 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class develop009 : MonoBehaviour
+{
+    public GameObject sfera;
+    public GameObject sfera2;
+
+    public Button mygtukas1;
+    public Button mygtukas2;
+
+    public Color[] spalvos;
+
+    int indexspalva1 = 0;
+    int indexspalva2 = 0;
+    // Start is called before the first frame update
+    void Start()
+    {
+        //add listener
+        mygtukas1.onClick.AddListener(spalvuFunkcija1);
+    }
+
+    // Update is called once per frame
+    
+    //funkcija
+
+
+    void spalvuFunkcija1()
+    {
+        indexspalva1= (indexspalva1+1) % spalvos.Length;
+        spalvutrafaretas(sfera, spalvos[indexspalva1]);
+    }
+
+
+    // funkcijos trafaretas
+
+    void spalvutrafaretas(Object objektas, Color spalvytes)
+    {
+        objektas.GetComponent<Renderer>().material.color = spalvytes;
+    }
+}
